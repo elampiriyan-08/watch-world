@@ -101,61 +101,61 @@
                 <h3>Classic Leather Watch</h3>
                 <p>Timeless leather strap with elegant design.</p>
                 <p class="price">₹12,000</p>
-                <button onclick="addToCart('Classic Leather Watch', 12000)">Add to Cart</button>
-                <button onclick="orderNow('Classic Leather Watch', 12000)">Order Now</button>
+                <button onclick="addToCart('Classic Leather Watch', 12000,'watch1.jpg')">Add to Cart</button>
+                <button onclick="orderNow('Classic Leather Watch', 12000,'watch1.jpg')">Order Now</button>
             </div>
             <div class="product">
                 <img src="images/watch2.jpg" alt="Luxury Gold Watch">
                 <h3>Luxury Gold Watch</h3>
                 <p>Premium gold-plated finish for a luxurious look.</p>
                 <p class="price">₹25,000</p>
-                <button onclick="addToCart('Luxury Gold Watch', 25000)">Add to Cart</button>
-                <button onclick="orderNow('Luxury Gold Watch', 25000)">Order Now</button>
+                <button onclick="addToCart('Luxury Gold Watch', 25000,'watch2.jpg')">Add to Cart</button>
+                <button onclick="orderNow('Luxury Gold Watch', 25000,'watch2.jpg')">Order Now</button>
             </div>
             <div class="product">
                 <img src="images/watch3.jpg" alt="Sport Digital Watch">
                 <h3>Sport Digital Watch</h3>
                 <p>Advanced digital features with a sporty design.</p>
                 <p class="price">₹9,000</p>
-                <button onclick="addToCart('Sport Digital Watch', 9000)">Add to Cart</button>
-                <button onclick="orderNow('Sport Digital Watch', 9000)">Order Now</button>
+                <button onclick="addToCart('Sport Digital Watch', 9000,'watch3.jpg')">Add to Cart</button>
+                <button onclick="orderNow('Sport Digital Watch', 9000,'watch3.jpg')">Order Now</button>
             </div>
             <div class="product">
                 <img src="images/watch4.jpg" alt="Analog Watch">
                 <h3>Smart Fitness Watch</h3>
                 <p>Track your fitness with cutting-edge technology.</p>
                 <p class="price">₹15,000</p>
-                <button onclick="addToCart('Analog  Watch', 15000)">Add to Cart</button>
-                <button onclick="orderNow('Analog  Watch', 15000)">Order Now</button>
+                <button onclick="addToCart('Analog  Watch', 15000,'watch4.jpg')">Add to Cart</button>
+                <button onclick="orderNow('Analog  Watch', 15000,'watch4.jpg')">Order Now</button>
             </div>
             <div class="product">
                 <img src="images/watch5.jpg" alt="Elegant  Watch">
                 <h3>Elegant Silver Watch</h3>
                 <p>Classic silver-tone with a modern touch.</p>
                 <p class="price">₹18,000</p>
-                <button onclick="addToCart('Elegant  Watch', 18000)">Add to Cart</button>
-                <button onclick="orderNow('Elegant  Watch', 18000)">Order Now</button>
+                <button onclick="addToCart('Elegant  Watch', 18000,'watch5.jpg')">Add to Cart</button>
+                <button onclick="orderNow('Elegant  Watch', 18000,'watch5.jpg')">Order Now</button>
             </div>
         </div>
     </section>
 
     <footer>
-        <p><strong>ED Watch Store</strong></p>
+        <p><strong>ED WATCH WORLD</strong></p>
         <p>123 Watch Street, Tamil Nadu, India</p>
         <p>Email: support@edwatchstore.com</p>
         <p>Phone: +91 98765 43210</p>
     </footer>
 
     <script>
-        function addToCart(name, price) {
+        function addToCart(name, price,images) {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            cart.push({ name, price });
+            cart.push({ name, price,images });
             localStorage.setItem("cart", JSON.stringify(cart));
             window.location.href = "cart.html";
         }
 
-        function orderNow(name, price) {
-            localStorage.setItem("cart", JSON.stringify([{ name, price }]));
+        function orderNow(name, price,images) {
+            localStorage.setItem("cart", JSON.stringify([{ name, price,images }]));
             window.location.href = "cart.html";
         }
     </script>
