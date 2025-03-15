@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #d3d3d3, #f0f0f0, #e8e8e8);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    max-width: 500px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    background: #6c757d;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+</style>
+<body>
+    <div class="container">
+        <h1>🎉 Thank You for Your Purchase! 🎉</h1>
+        <p>We truly appreciate your business and hope you enjoy your purchase.</p>
+        <p>Check your email for order details and tracking information.</p>
+        <p>Have a fantastic day! 😊</p>
+        <a href="index.html" class="btn">Back to Home</a>
+    </div>
+
+    <!-- Confetti Effect -->
+    <canvas id="confetti"></canvas>
+    <script src="script.js">
+
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const confetti = [];
+
+function createConfetti() {
+    for (let i = 0; i < 100; i++) {
+        confetti.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+            size: Math.random() * 5 + 2,
+            speed: Math.random() * 3 + 1
+        });
+    }
+}
+
+function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confetti.forEach(particle => {
+        ctx.fillStyle = particle.color;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fill();
+    });
+}
+
+function updateConfetti() {
+    confetti.forEach(particle => {
+        particle.y += particle.speed;
+        if (particle.y > canvas.height) {
+            particle.y = 0;
+            particle.x = Math.random() * canvas.width;
+        }
+    });
+}
+
+function animateConfetti() {
+    drawConfetti();
+    updateConfetti();
+    requestAnimationFrame(animateConfetti);
+}
+
+createConfetti();
+animateConfetti();
+
+    </script>
+</body>
+</html>
